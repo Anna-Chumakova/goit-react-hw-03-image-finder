@@ -1,4 +1,3 @@
-import GallerySearchForm from "./Searchbar/GallerySearchForm/GallerySearchForm"
 import ImageGallery from "./ImageGallery/ImageGallery";
 import styles from "./App.module.css";
 
