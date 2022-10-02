@@ -26,7 +26,10 @@ class ImageGallery extends Component {
             return this.fetchImages(search, page );
         }
     }   
-    onSearch = ({search}) => {
+    onSearch = ({ search }) => {
+        if (search === "") {
+            return alert("Please enter text and try again.");
+        }
         this.setState({
             search,
             items: [],
@@ -63,6 +66,9 @@ class ImageGallery extends Component {
 
     try {
         const data = await searchImages(search, page);
+        if (data.totalHits === 0) {
+            return alert('Sorry, there are no images matching your search query. Please try again.');
+        }
         this.setState(({items}) => {
             return {
                 items: [...items, ...data.hits]    
