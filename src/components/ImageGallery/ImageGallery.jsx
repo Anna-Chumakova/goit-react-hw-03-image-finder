@@ -20,7 +20,6 @@ class ImageGallery extends Component {
     componentDidUpdate(_, prevState) {
         const { search, page} = this.state;
         if ( prevState.search !== search) {
-            this.setState({ items: [], page: 1})
             return this.fetchImages(search, page );
         }
         if (page > prevState.page) {
@@ -30,6 +29,8 @@ class ImageGallery extends Component {
     onSearch = ({search}) => {
         this.setState({
             search,
+            items: [],
+            page: 1
         })
     }
     loadMore = () => {
